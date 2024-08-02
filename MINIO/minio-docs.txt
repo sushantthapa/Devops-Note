@@ -1,0 +1,1 @@
+Minio is object storage open source application.
