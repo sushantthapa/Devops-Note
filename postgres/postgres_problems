@@ -1,0 +1,9 @@
+//psql fatal ident authentication failed for user
+
+vi /var/lib/pgsql/12/data/pg_hba.conf
+
+//change ident of ipv4 and ipv6 to password
+
+and reload the postgresql from ctl command 
+or SELECT pg_reload_conf();
+

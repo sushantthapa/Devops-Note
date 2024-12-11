@@ -1,0 +1,1 @@
+tar –xvzf documents.tar.gz

@@ -1,0 +1,104 @@
+To generate self signed SSL Certificate and add to JAVA truststore for using with Tomcat
+
+keytool -genkey -keyalg RSA -alias tomcat -keystore selfsigned.jks -validity 365 -keysize 2048
+
+
+keytool -list -v -keystore selfsigned.jks
+
+keytool -export -keystore selfsigned.jks -storepass <password> -alias tomcat -file selfsigned.cer
+
+
+
+keytool -printcert -v -file selfsigned.cer
+
+
+
+
+
+keytool -genkey -keyalg RSA -noprompt -alias tomcat -dname "CN=localhost, OU=NA, O=NA, L=NA, S=NA, C=NA" -keystore keystore.jks -validity 9999 -storepass changeme -keypass changeme
+
+
+
+
+//add this to the server.xml
+
+<Connector port="443" protocol="HTTP/1.1" SSLEnabled="true"
+          maxThreads="150" scheme="https" secure="true"
+          keystoreFile="/etc/ssl/self-signed/selfsigned.jks" keystorePass="changeit"
+          clientAuth="false" acceptCount="100"/>
+
+
+
+
+
+//DigiCert  JAVA TOOL KEY
+
+
+//Important: You must install the SSL/TLS Certificate file to the same keystore and under the same alias name (e.g., "-alias server") that you used to generate your CSR. 
+//If you try to install the certificate to a different keystore or under a different alias, the import command will not work.
+
+
+//run the command below to import the certificate into your keystore
+
+STEP 1:
+
+*******keytool -genkey -alias server -keyalg RSA -keysize 2048 -keystore your_site_name.jks
+
+
+
+//your_site_name should be the name of the domain you want to secure with this SSL/TLS certificate. 
+//When ordering a Wildcard certificate, do not include the asterisk (*) in the filename (e.g., your_site_name). 
+//The asterisk is not a valid keytool character.
+
+
+Important: When prompted for the first and last name, DO NOT type your first and last name. 
+Instead, type the Fully Qualified Domain Name (FQDN) for the site you are securing with this certificate (e.g., www.yourdomain.com, mail.yourdomain.com). 
+Are you are ordering a Wildcard Certificate? Then your FQDN must begin with an asterisk (*). (e.g.,*.yourdomain.com).
+
+
+STEP 2: 
+
+//GENERATE A CSR FROM  YOUR NEW KEYSTORE
+
+
+*******keytool -certreq -alias server -file csr.txt -keystore your_site_name.jks
+
+
+//In the command above, your_site_name should be the name of the keystore file you created in 
+Step 1: Use Keytool to Create a New Keystore or when using the DigiCert Java Keytool CSR Wizard.
+
+
+//We recommend that you create a back-up copy of your Keystore file (your_site_domain.jks) before continuing. 
+Having a back-up of the Keystore file can help resolve issues that may occur during certificate SSL/TLS installation.
+
+STEP 3:
+
+Open the .csr file you created with a text editor.
+
+Copy the text, including the -----BEGIN NEW CERTIFICATE REQUEST----- and -----END NEW CERTIFICATE REQUEST----- tags, and paste it in to the DigiCert order form.
+
+
+STEP 4:
+
+Important: You must install the SSL/TLS Certificate file to the same keystore and under the same alias name (e.g., "-alias server") that you used to generate your CSR. 
+If you try to install the certificate to a different keystore or under a different alias, the import command will not work.
+
+
+
+********keytool -import -alias server -file your_site_name.p7b -keystore your_site_name.jks
+
+
+<Connector port="443" maxHttpHeaderSize="8192" maxThreads="100"
+           minSpareThreads="25" maxSpareThreads="75"
+           enableLookups="false" disableUploadTimeout="true"
+           acceptCount="100" scheme="https" secure="true"
+           SSLEnabled="true" clientAuth="false"
+           sslProtocol="TLS" keyAlias="server"
+           keystoreFile="/home/user_name/your_site_name.jks"
+           keystorePass="your_keystore_password" />
+
+
+
+
+
+

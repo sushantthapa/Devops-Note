@@ -1,0 +1,25 @@
+
+
+
+//Installing java and javac in linux system
+
+check the java version
+java -version
+
+javac -version
+
+download the jdk and unzip to /usr/lib/jvm
+
+sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17/bin/java(path to your jdk) 3
+
+
+sudo update-alternatives --config java
+newly added java version must be in the list and please enter the number
+
+java -version
+
+
+update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-17.0.2/bin/javac 3
+update-alternatives --config javac
+
+javac -version

@@ -1,0 +1,98 @@
+//pull docker images
+docker pull centos
+
+
+//run docker images as container
+docker run -d -t --name mycentos centos
+
+//run docker images as container with port
+docker run -t -d -p 80:80 --name mycentos
+
+//run jenkins with port 8080
+docker run -td --name myjenkins -p 8080:8080 jenkins
+
+//run
+docker run -it --name mycontainer image-name
+
+docker run -d --volume /home/sushant/Download:/tmp image-id sleep infinity
+
+
+
+
+
+//login on dockerhub
+docker login
+
+//create docker image for dockerhub
+docker tag image1 path_in_dockerhub
+
+//publish/push docker image in dockerhub
+docker push path_in_dockerhub
+
+
+
+//execute or enter docker running container
+docker exec -it mycentos bash
+
+//execute or enter running container
+docker exec -it mycentos sh
+
+//to list all the running container
+docker ps 
+//to list all the container
+docker ps -a
+
+docker start 
+docker restart
+docker stop
+docker stats
+docker images
+
+//create new docker images from running container
+docker commit running_container_name images_name 
+
+
+//to see difference between images and container running 
+docker diff mycontainer
+
+
+
+
+//delete all images 
+docker rmi -f $(docker images -q)
+//delete all stopped container
+docker rm $(docker ps -a -q)
+//delete all running container
+docker stop $(docker ps -a -q)
+
+//delete docker running container forefully
+docker rm --force container name
+
+//copy from docker to host
+docker cp container-id:/filename /home/sushant/...
+
+
+
+//postgres
+docker run --name postgres9.6 -e POSTGRES_PASSWORD-=postgres -d postgres
+
+
+//run jenkins in docker port 8090
+docker run -p 8090:8080 -p 50000:50000 --restart=on-failure jenkins/jenkins:lts-jdk11
+
+
+//docker logs
+docker logs container_id
+
+
+
+//add volume to running container
+ docker stop my_container
+
+ create new volume
+ docker volume create nginx-config
+
+ docker run -d 
+  --name myjenkins 
+  --mount source=nginx-config,target=/etc/nginx 
+  nginx:latest

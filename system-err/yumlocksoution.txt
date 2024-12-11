@@ -1,0 +1,22 @@
+This is solution to the problem that is faced due to
+Problem:::Another app is currently holding the yum lock; waiting for it to exit
+
+
+
+
+to remove the pid, 
+
+Solution 1:
+cmd : rm -f /var/run/yum.pid 20360
+
+Solution 2:
+
+cmd : ps aux | grep yum
+
+cmd : kill -9 [insert pid]
+
+Solution 3:
+
+cmd : ps -ef | grep pid
+
+cmd : kill -9 [insert pid]

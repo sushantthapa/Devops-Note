@@ -1,0 +1,16 @@
+//give a static ip to the server
+//change hostname and add the hostname to the hosts
+
+//snapd repo are already add in the ubuntu
+sudo apt install snap
+
+
+// install microk8s using snap
+sudo snap install microk8s --classic --channel=1.28/stable
+
+//adding masters 
+microk8s add-node
+
+//incase
+microk8s add-node --token-ttl 3600
+

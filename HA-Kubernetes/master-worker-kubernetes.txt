@@ -1,0 +1,131 @@
+--------------->//change dynamic ip to static ip
+network:
+  ethernets:
+    ens18:
+      dhcp4: no
+      addresses: [192.168.18.202/24]
+      nameservers:
+        addresses: [8.8.8.8,8.8.8.4]
+      routes:
+        - to: 0.0.0.0/0
+          via: 192.168.18.10
+  version: 2
+
+
+------------------>//static ip for the resources
+
+192.168.18.101 kmaster01
+192.168.18.102 kmaster02
+192.168.18.103 kmaster03
+
+192.168.18.201 kworker01
+192.168.18.202 kworker02
+192.168.18.203 kworker03
+
+192.168.18.111 haproxy01
+192.168.18.112 haproxy02
+
+
+-------------------->//restart and check if the static ip has taken place or not
+
+
+-------------------->//update the repositories
+sudo su
+sudo apt-get update -y
+
+
+-------------------->//check the product uuid
+sudo cat /sys/class/dmi/id/product_uuid
+
+
+------------------->//Turn off Swap Space
+sudo swapoff -a
+
+vi /etc/fstab
+
+//Update the Hostname & restart to see the hostname change
+sudo vi /etc/hostname
+
+
+//add private ip to the hosts
+
+<ip address> hosts
+
+
+------------------>//Install Openssh server
+sudo apt-get install openssh-server -y
+
+------------------>//install docker.io
+sudo apt install docker.io -y
+
+
+sudo apt-get install -y apt-transport-https ca-certificates curl
+
+
+sudo mkdir -m 755 /etc/apt/keyrings
+
+//add google cloud public sigining key
+curl -fsSL https://dl.k8s.io/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
+
+
+//add kubernetes repositories
+
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+
+
+
+
+
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+
+//in ubuntu20.04
+find / -name "10-kubeadm.conf"
+/etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+
+
+vi /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
+//add
+Environment="cgroup-driver=systemd/cgroup-driver=cgroupfs"
+
+
+
+
+//NOTE
+ In releases older than Debian 12 and Ubuntu 22.04, /etc/apt/keyrings does not exist by default; you can create it by running sudo mkdir -m 755 /etc/apt/keyrings
+
+
+//kubeadm init
+
+sudo kubeadm init --pod-network-cidr=192.168.18.0/16 --apiserver-advertise-address=192.168.18.250
+
+
+kubeadm init --control-plane-endpoint="10.0.1.77:6443" --upload-certs --apiserver-advertise-address=10.0.1.54 --pod-network-cidr=192.168.0.0/16
+
+
+
+
+
+
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+
+
+kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+
+
+
+
+kubeadm join 192.168.18.101:6443 --token lc7zrz.8niql6p4om67blwn \
+	--discovery-token-ca-cert-hash sha256:47c2c5ef536f59d6b8c38fb1715d2b29c903c0fb0a4bdb1e1817e4850fb8453e
+
+
+kubeadm join 192.168.18.250:6443 --token nfqkl2.hlrmgd7wli18ksyc \
+	--discovery-token-ca-cert-hash sha256:f522788e2789bafeb869a7d3c6d6291b25f2a0405197e56bfbab9985fd28fdaa 
+
+
+

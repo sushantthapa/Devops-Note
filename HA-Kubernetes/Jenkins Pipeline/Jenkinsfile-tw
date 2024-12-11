@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    environment {
+        BASE_URL = 'reg.cityremit.global/cityremit/cityremit-mgmt'
+        API_URL = 'https://jp-dev.cityremit.global/web-api/'
+        REACT_APP_RECAPTCHA_SITE_KEY = '6Ld9TqYnAAAAANVRe3-a3ce-lLxzqSv5VCMsIoQz'
+        REG_URL = 'https://reg.cityremit.global'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh """
+                    docker build \
+                        --build-arg API_URL=${env.API_URL} \
+                        --build-arg REACT_APP_RECAPTCHA_SITE_KEY=${env.REACT_APP_RECAPTCHA_SITE_KEY} \
+                        -t ${env.BASE_URL}:${env.BUILD_NUMBER} .
+                """
+            }
+        }
+
+        stage('Push to Harbor') {
+            steps {
+                sh "docker push ${env.BASE_URL}:${env.BUILD_NUMBER}"
+            }
+        }
+    }
+}

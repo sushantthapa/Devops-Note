@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  remitcore:
+    container_name: remit-core
+    build:
+      context: ./
+      args:
+        - TIME_ZONE=Asia/Kathmandu
+    ports:
+      - '8081:8080'
+    env_file:
+      - .env
+  remitthirdparty:
+    container_name: remit-third-party
+    build:
+      context: ./
+      dockerfile: DockerfileThirdParty
+      args:
+        - TIME_ZONE=Asia/Kathmandu
+    ports:
+      - '8082:8080'
+    env_file:
+      - .env
+
+
+

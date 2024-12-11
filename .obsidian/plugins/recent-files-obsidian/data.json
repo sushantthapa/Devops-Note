@@ -1,0 +1,205 @@
+{
+  "recentFiles": [
+    {
+      "basename": "VIM",
+      "path": "LINUX COMMANDS/VIM.md"
+    },
+    {
+      "basename": "Preparing Config",
+      "path": "KUBERNETES/Preparing Config.md"
+    },
+    {
+      "basename": "NFS Server Configuration and Installation",
+      "path": "KUBERNETES/NFS Server Configuration and Installation.md"
+    },
+    {
+      "basename": "NFS server  installation and nfs-provisioning",
+      "path": "KUBERNETES/NFS server  installation and nfs-provisioning.md"
+    },
+    {
+      "basename": "Kubernetes 1.29.4 Installation",
+      "path": "KUBERNETES/Kubernetes 1.29.4 Installation.md"
+    },
+    {
+      "basename": "kubectl command",
+      "path": "KUBERNETES/kubectl command.md"
+    },
+    {
+      "basename": "KUBEADM CERTIFICATE RENEW",
+      "path": "KUBERNETES/KUBEADM CERTIFICATE RENEW.md"
+    },
+    {
+      "basename": "Kube-Metrics",
+      "path": "KUBERNETES/Kube-Metrics.md"
+    },
+    {
+      "basename": "Helm Reloader of Secret and Config",
+      "path": "KUBERNETES/Helm Reloader of Secret and Config.md"
+    },
+    {
+      "basename": "COPY",
+      "path": "LINUX COMMANDS/COPY.md"
+    },
+    {
+      "basename": "steps for partitioning a physical disk",
+      "path": "LINUX COMMANDS/steps for partitioning a physical disk.md"
+    },
+    {
+      "basename": "extend an existing logical volume within a volume group",
+      "path": "LINUX COMMANDS/extend an existing logical volume within a volume group.md"
+    },
+    {
+      "basename": "Command",
+      "path": "LINUX COMMANDS/Command.md"
+    },
+    {
+      "basename": "Add cluster in argocd",
+      "path": "ARGOCD/Add cluster in argocd.md"
+    },
+    {
+      "basename": "argo-script for finpos-dev",
+      "path": "ARGOCD/argo-script for finpos-dev.md"
+    },
+    {
+      "basename": "argo- script for finpos-qa",
+      "path": "ARGOCD/argo- script for finpos-qa.md"
+    },
+    {
+      "basename": "Generate Cluster Config and token for Finpos",
+      "path": "Finpos/Generate Cluster Config and token for Finpos.md"
+    },
+    {
+      "basename": "ArgoCd",
+      "path": "Finpos/ArgoCd.md"
+    },
+    {
+      "basename": "Change its registry",
+      "path": "Finpos/Change its registry.md"
+    },
+    {
+      "basename": "Finpos Dev  Services",
+      "path": "Finpos/Finpos Dev  Services.md"
+    },
+    {
+      "basename": "Velero Installation Backup Restore",
+      "path": "VELERO/Velero Installation Backup Restore.md"
+    },
+    {
+      "basename": "HAPROXY",
+      "path": "HAPROXY/HAPROXY.md"
+    },
+    {
+      "basename": "HaProxy Installation and Configuration",
+      "path": "KUBERNETES/HA Cluster/HaProxy Installation and Configuration.md"
+    },
+    {
+      "basename": "KeepAlived and Haproxy",
+      "path": "KUBERNETES/HA Cluster/KeepAlived and Haproxy.md"
+    },
+    {
+      "basename": "Multiple Maven Installation in Ubuntu",
+      "path": "Maven/Multiple Maven Installation in Ubuntu.md"
+    },
+    {
+      "basename": "Command",
+      "path": "postgres/Command.md"
+    },
+    {
+      "basename": "Commands",
+      "path": "ARTIFACTORY/Commands.md"
+    },
+    {
+      "basename": "ALert config",
+      "path": "KUBERNETES/ALERT MANAGER/ALert config.md"
+    },
+    {
+      "basename": "Kubectl commands",
+      "path": "Kubectl commands.md"
+    },
+    {
+      "basename": "grafana pvc",
+      "path": "KUBERNETES/Grafana/grafana pvc.md"
+    },
+    {
+      "basename": "README",
+      "path": "HA-Kubernetes/kubernetes/kubernetes-prometheus/README.md"
+    },
+    {
+      "basename": "backup restore",
+      "path": "MSSQL/backup restore.md"
+    },
+    {
+      "basename": "Enable Disable",
+      "path": "ARGOCD/Enable Disable.md"
+    },
+    {
+      "basename": "install using helm",
+      "path": "ARGOCD/install using helm.md"
+    },
+    {
+      "basename": "Commands",
+      "path": "KUBERNETES/TAINT NODE/Commands.md"
+    },
+    {
+      "basename": "HELM",
+      "path": "HELM.md"
+    },
+    {
+      "basename": "Set up redis and redis-exporter",
+      "path": "KUBERNETES/Redis/Set up redis and redis-exporter.md"
+    },
+    {
+      "basename": "Steps",
+      "path": "ARGOCD/Steps.md"
+    },
+    {
+      "basename": "deployment",
+      "path": "KUBERNETES/deployment/deployment.md"
+    },
+    {
+      "basename": "Command",
+      "path": "Node/Command.md"
+    },
+    {
+      "basename": "Dev Alert",
+      "path": "KUBERNETES/ALERT MANAGER/Dev Alert.md"
+    },
+    {
+      "basename": "Alert Manager Config",
+      "path": "KUBERNETES/Prometheus/Alert Manager Config.md"
+    },
+    {
+      "basename": "prometheus config",
+      "path": "KUBERNETES/Prometheus/prometheus config.md"
+    },
+    {
+      "basename": "Commands",
+      "path": "Jenkins/Commands.md"
+    },
+    {
+      "basename": "Deploying Grafana, Loki and Prometheus in Kubernetes Cluster",
+      "path": "KUBERNETES/Grafana/Deploying Grafana, Loki and Prometheus in Kubernetes Cluster.md"
+    },
+    {
+      "basename": "Screenshot from 2024-06-21 10-06-15",
+      "path": "Screenshot from 2024-06-21 10-06-15.png"
+    },
+    {
+      "basename": "Screenshot from 2024-06-21 10-06-48",
+      "path": "Screenshot from 2024-06-21 10-06-48.png"
+    },
+    {
+      "basename": "Screenshot from 2024-06-21 10-07-58",
+      "path": "Screenshot from 2024-06-21 10-07-58.png"
+    },
+    {
+      "basename": "finpos-terminal jenkinsfile.ci",
+      "path": "CI/finpos-terminal jenkinsfile.ci.md"
+    },
+    {
+      "basename": "frontend",
+      "path": "CI/frontend.md"
+    }
+  ],
+  "omittedPaths": []
+}

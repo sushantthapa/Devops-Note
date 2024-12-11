@@ -1,0 +1,13 @@
+CREATE USER new_user WITH PASSWORD 'password';
+
+CREATE ROLE your_role_name;
+
+CREATE ROLE custom_role LOGIN;
+
+ALTER USER your_username SET ROLE your_role_name;
+
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO custom_role;
+
+psql -U your_username
+
+\du 

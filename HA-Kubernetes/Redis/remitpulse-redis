@@ -1,0 +1,12 @@
+
+redis-cli -h 172.16.128.37 -p 6379
+AUTH C!tyR3dis
+
+
+//live cluster 
+get to the live redis node 
+redis-cli 
+AUTH C!ty#R3dis
+KEYS *
+DEL "login_detail:MAUSAM.SHRESTHA@CITYTECH.GLOBAL:admin"
+

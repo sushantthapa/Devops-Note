@@ -1,0 +1,24 @@
+//dockerfile
+
+FROM - for base image
+
+RUN - to execute cmd, it will create a layer in image
+
+MAINTAINER - Author/OWNER/Description
+
+COPY - copy files from local system, provide source and destination
+
+    //to download from internet
+ADD - similar to copy but, it provides a feature to download files from internet.
+    also extract files at docker image 
+
+EXPOSE - to expose ports
+
+WORKDIR - to set working directory for a container
+
+CMD - execute commands but during container creation
+
+ENTRYPOINT - similar to CMD, but has higher priority over cmd,
+        first command, will be executed by ENTRYPOINT only
+
+ENV - environment variables

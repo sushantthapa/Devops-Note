@@ -1,0 +1,89 @@
+--------------->//change dynamic ip to static ip
+network:
+  ethernets:
+    ens18:
+      dhcp4: no
+      addresses: [192.168.18.91/24]
+      nameservers:
+        addresses: [8.8.8.8,8.8.8.4]
+      routes:
+        - to: 0.0.0.0/0
+          via: 192.168.18.10
+  version: 2
+  
+  sudo su
+sudo apt-get update -y
+
+
+-------------------->//check the product uuid
+sudo cat /sys/class/dmi/id/product_uuid
+
+
+------------------->//Turn off Swap Space
+sudo swapoff -a
+
+vi /etc/fstab
+
+//Update the Hostname & restart to see the hostname change
+sudo vi /etc/hostname
+
+sudo apt install docker.io -y
+
+
+sudo apt-get install -y apt-transport-https curl
+
+
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+
+cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+deb https://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+
+
+sudo apt-get update
+
+sudo apt-get install -y kubelet=1.23.0-00 kubeadm=1.23.0-00 kubectl=1.23.0-00
+sudo apt-mark hold kubelet kubeadm kubectl
+
+//in ubuntu20.04
+find / -name "10-kubeadm.conf"
+sudo vi /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+sudo vi /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
+
+--------------->add
+
+------------->check
+docker info | grep -i cgroup
+
+--cgroup-driver=cgroupfs
+ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_CONFIG_ARGS $KUBELET_KUBEADM_ARGS $KUBELET_EXTRA_ARGS --cgroup-driver=cgroupfs
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+
+
+//kubeadm init
+
+sudo kubeadm init --pod-network-cidr=192.168.18.0/16 --apiserver-advertise-address=192.168.18.250
+
+
+kubeadm init --control-plane-endpoint="10.0.1.77:6443" --upload-certs --apiserver-advertise-address=10.0.1.54 --pod-network-cidr=192.168.0.0/16
+
+
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+----------->Deploy pod networking calico
+kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+
+----------->check if the port is used or not
+sudo lsof -i :6443
+
+
+--------------------->Helpful Commands
+
+
+
+
+
+

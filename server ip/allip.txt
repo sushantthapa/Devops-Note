@@ -1,0 +1,9 @@
+Bmnepal-silverline                202.51.1.225    root    5577    A3CcywZGKMgbMdxw
+Silverline-katamari-Uat            202.51.1.100    root    5577    4vHQLaN2ynQM2NyZ
+Silverline-live                    202.51.1.17        root    4477    FpqKffnT4J6AuWnh            
+India server - nextgen            202.21.34.90    root    22        wAEa4vCk8P
+*/11 * * * * sh /usr/bin/kill -20  sh  /usr/tomcat/webapps/globalremit/WEB-INF/classes/np/com/ntech/global/cronjob/Sleep.sh >> /tmp/Sleep.log 2>&1
+
+
+
+pg_dump hamroremit | gzip > ~/backup/hamroremit/hamroremit_backup.gz

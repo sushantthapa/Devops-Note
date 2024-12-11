@@ -1,0 +1,14 @@
+kubectl config view --minify --flatten
+
+
+
+//to restart deployment when secret are edited
+
+kind: Deployment
+spec:
+  template:
+    metadata:
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
+[...]
+

@@ -1,0 +1,8 @@
+eksctl create cluster --name test-cluster --region ap-south-1 --nodegroup-name test-nodes --node-type t2.micro --nodes 1
+  504  eksctl get cluster --region ap-south-1
+  505  kubectl config view
+  506  aws eks update-kubeconfig --name test-cluster --region ap-south-1
+  507  kubectl get nodes
+  508  cat .kube/config 
+  509  eksctl delete cluster --name test-cluster --region ap-south-1
+

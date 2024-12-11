@@ -1,0 +1,20 @@
+//in old live database server 
+
+pg_dump -U remitpulse -d remitpulse_live > remitpulse_live.sql
+
+
+//in new database server 
+
+su postgres
+
+psql
+
+DROP DATABASE IF EXISTS remitpulse_live;
+
+CREATE DATABASE remitpulse_live;
+
+\q
+
+psql -U postgres -d remitpulse_live -f /tmp/remitpulse_live.sql
+
+

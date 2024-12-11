@@ -1,0 +1,61 @@
+global_defs {
+   notification_email {
+     sysadmin@mydomain.com
+     support@mydomain.com
+   }
+   notification_email_from lb1@mydomain.com
+   smtp_server localhost
+   smtp_connect_timeout 30
+}
+
+vrrp_instance VI_1 {
+    state MASTER
+    interface ens18
+    virtual_router_id 102
+    priority 102
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 1111
+    }
+    virtual_ipaddress {
+        192.168.18.130
+    }
+    track_script {
+        chk_http_port
+    }
+}
+
+vrrp_script chk_http_port {
+    script "/etc/keepalived/check_http.sh"
+    interval 2
+    weight 2
+}
+
+
+vi /etc/keepalived/check_http.sh
+apt install net-tools
+
+
+#!/bin/bash
+
+# Use the IP address of the other load balancer as the IP address to check
+IP_ADDRESS="x.x.x.x"  # Replace with the actual IP address of the other LB
+PORT="80"             # You can adjust the port as needed
+
+# Check if the resource (the other LB) is reachable
+if nc -z "$IP_ADDRESS" "$PORT"; then
+    exit 0  # Resource is reachable, exit with success status
+else
+    exit 1  # Resource is not reachable, exit with failure status
+fi
+
+
+
+
+------------> update and check
+sudo apt-get update
+sudo apt-get install linux-headers-$(uname -r)
+
+----------->install
+apt install keepalived

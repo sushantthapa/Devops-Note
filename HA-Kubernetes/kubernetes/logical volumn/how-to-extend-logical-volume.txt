@@ -1,0 +1,50 @@
+
+// How to extend linux LVM Logical volume
+check your current volume your filesystem is using 
+df -h
+lsblk
+
+Check free space
+	vgdisplay 
+
+outputs : --- Volume group ---
+  VG Name               ubuntu-vg
+  System ID             
+  Format                lvm2
+  Metadata Areas        1
+  Metadata Sequence No  2
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                1
+  Open LV               1
+  Max PV                0
+  Cur PV                1
+  Act PV                1
+  VG Size               <48.00 GiB
+  PE Size               4.00 MiB
+  Total PE              12287
+  Alloc PE / Size       6143 / <24.00 GiB
+  Free  PE / Size       6144 / 24.00 GiB
+  VG UUID               brYJYM-o23r-b90L-meNF-XArS-kAN1-4Xscif
+
+
+extend the logical volume
+
+sudo lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
+
+----->Use the lvextend command to increase the size of the logical volume. Since you have 24.00 GiB of free space available, you can use this space to extend the logical volume. Assuming you want to use all available free space, you can specify it using the +100%FREE option.
+
+to verify the filesystem of your system
+df -T
+
+for ext4 filesystem 
+sudo resize2fs /dev/ubuntu-vg/ubuntu-lv
+
+for xfs filesystem
+sudo xfs_growfs /dev/ubuntu-vg/ubuntu-lv
+
+
+verify 
+
+df -h

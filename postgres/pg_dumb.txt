@@ -1,0 +1,32 @@
+Step 1:IN MAIN SERVER 
+    pg_dump tar file from working database
+
+    sudo su
+    su - postgres
+    //inorder to dump single table from the database
+    /usr/local/psql/bin/pg_dump hamroremit | gzip > /tmp/hamroremit.gz
+
+//inorder to dump whole database with all tables
+    /usr/local/psql/bin/pg_dumpall | gzip > /tmp/postgres.gz
+
+
+Step 2:IN SECOND SERVER
+
+    scp hamroremit.gz file to the another server
+    its in scp_command
+
+Step 3:IN SECOND SERVER
+
+    sudo su
+    su - postgres
+    CREATE DATABASE hamroremit;
+    
+    //postgresql 9.6
+    gunzip -c /tmp/migrantmoney.gz | /usr/local/pgsql/bin/psql migrantmoney
+
+
+    gunzip -c /tmp/hamroremit.gz | psql hamroremit
+
+
+//inorder to dumpall database into host database
+    gunzip -c /tmp/postgres.gz | psql 

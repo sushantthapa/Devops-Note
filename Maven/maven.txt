@@ -1,0 +1,13 @@
+//installing maven
+
+download the desire maven version
+
+#create setup environment
+sudo vi /etc/profile.d/maven.sh
+
+export M2_HOME = /usr/lib/maven
+export PATH=${M2_HOME}/bin:${PATH}
+
+
+source /etc/profile.d/maven.sh
+

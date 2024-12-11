@@ -1,0 +1,10 @@
+sudo ufw enable
+
+sudo ufw allow from 10.0.0.0/16
+sudo ufw allow 6443/tcp
+sudo ufw allow 2379/tcp
+sudo ufw allow 10250/tcp
+
+sudo ufw reload
+
+sudo ufw status numbered

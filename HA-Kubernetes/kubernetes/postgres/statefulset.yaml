@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: getpay-postgres
+    k8slens-edit-resource-version: v1
+  name: getpay-postgres
+  namespace: getpay-qa
+spec:
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: getpay-postgres
+    port: 5432
+    protocol: TCP
+    targetPort: 5432
+  selector:
+    app: getpay-postgres
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

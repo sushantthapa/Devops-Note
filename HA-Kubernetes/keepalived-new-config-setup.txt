@@ -1,0 +1,60 @@
+
+
+apt install keepalived -y 
+
+apt install libipset13
+
+//create a keepalived.conf file inside /etc/keepalived on both server 
+
+sudo systemctl enable --now keepalived 
+
+
+------------------------> first node
+
+
+vrrp_instance VI_1 {
+    state MASTER
+    interface ens18
+    virtual_router_id 102
+    priority 150
+    advert_int 1
+
+    unicast_src_ip 192.168.18.120
+    unicast_peer{
+	192.168.18.121
+	}	
+
+    authentication {
+        auth_type PASS
+        auth_pass 1111
+    }
+    virtual_ipaddress {
+        192.168.18.130/24
+    }
+}
+
+
+-------------------------> second node
+
+
+vrrp_instance VI_1 {
+    state BACKUP
+    interface ens18
+    virtual_router_id 102
+    priority 100
+    advert_int 1
+    unicast_src_ip 192.168.18.121
+    unicast_peer{
+    192.168.18.120	
+}	
+    authentication {
+        auth_type PASS
+        auth_pass 1111
+    }
+    virtual_ipaddress {
+        192.168.18.130/24
+    }
+}
+
+
+

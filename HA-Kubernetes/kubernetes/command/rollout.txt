@@ -1,0 +1,8 @@
+kubectl rollout history deployment/remitpulse-third-party
+kubectl rollout history deployment/remitpulse-third-party -n remitpulse-demo-mm
+kubectl rollout undo deployment/remitpulse-third-party --to-revision=61 -n remitpulse-demo-mm
+kubectl rollout undo deployment/remitpulse-third-party --to-revision=60 -n remitpulse-demo-mm
+kubectl rollout history deployment/remitpulse-third-party -n remitpulse-demo-mm
+kubectl rollout undo deployment/remitpulse-third-party --to-revision=59 -n remitpulse-demo-
+kubectl rollout history deployment/remitpulse-core -n remitpulse-demo-mm
+kubectl rollout undo deployment/remitpulse-core --to-revision=67 -n remitpulse-demo-mm

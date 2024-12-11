@@ -1,0 +1,23 @@
+
+#SCP with port 80
+transfer file from local to remote 
+sudo scp ~/home/sushant/filepath root@ipaddress:/path
+
+sudo scp root@ipaddress:filepath ~/localhost path to store file
+
+
+#SCP with different port 5577
+
+add port below port 
+vi /etc/ssh/sshd_config
+port 5577
+open port in firewall
+firewall-cmd --add-port=5577/tcp temporary
+
+command to transfer file from remote to local host
+sudo scp -P 5577 root@202.51.1.100:/tmp/hamroremitbk.dmp /home/sushant
+
+
+command to transfer file from local to remote host
+move to the location of directory where file is located
+scp -P 2322 file.txt root@ipaddress:/remote/directory

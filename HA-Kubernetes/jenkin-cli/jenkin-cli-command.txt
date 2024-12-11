@@ -1,0 +1,5 @@
+java -jar jenkins-cli.jar -s http://localhost:8080/ -auth sushant:112287c526885770e993884c610c3d986e create-job STAGE-FINPOS-SCHEMES < finpos-staging.xm
+java -jar jenkins-cli.jar -s http://jenkin.citytech.global:8080/ -webSocket help
+
+
+112287c526885770e993884c610c3d986e 

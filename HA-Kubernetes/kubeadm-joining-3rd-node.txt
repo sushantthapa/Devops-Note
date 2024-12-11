@@ -1,0 +1,68 @@
+//kubeadm 
+
+//looking secret key
+kubectl get secrets -n kube-system kubeadm-certs -o yaml
+
+
+kubeadm token create --print-join-command
+
+
+sudo kubeadm init phase upload-certs --upload-certs | grep -oP 'sha256:\S+'
+
+
+sudo kubeadm join <control-plane-host>:6443 --token abcdef.1234567890abcdef --discovery-token-ca-cert-hash sha256:your-cert-hash --control-plane --certificate-key your-certificate-key
+
+
+
+
+
+//in the main master node 
+sudo kubeadm init phase upload-certs --upload-certs
+
+----> gives you key and use that in the next command
+
+//this command will create a join command 
+sudo kubeadm token create --certificate-key dad6abd99255c528dddc0ab95997780a7145c0a46a118c7addb679b2825b721c --print-join-command
+
+
+
+
+------->in the main master node 
+sudo kubeadm init phase upload-certs --upload-certs
+
+
+----------->Generate New Tokens:
+kubeadm token create
+token
+------------>Generate Discovery Token CA Cert Hash
+openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'
+sha256:<>
+
+
+sudo kubeadm join <LOAD_BALANCER_IP>:<LOAD_BALANCER_PORT> --token <TOKEN> --discovery-token-ca-cert-hash sha256:<CERT_HASH> --control-plane --certificate-key <CERTIFICATE_KEY>
+
+
+sudo kubeadm join 192.168.18.111:6443 --token 67nxeh.t8t3hdfbhq5qoimz  --discovery-token-ca-cert-hash sha256:c856cc7b0f63ad83ff0da1fd6c5f7e5ef17ac0247bc973ff1e035a33a6099faf --control-plane --certificate-key ce47855b5819b5bbe44cd5c408599bb4aafad292d4ef5aa1761b5f14868eb26b
+
+
+
+
+------------------->> new easy
+
+sudo kubeadm init phase upload-certs --upload-certs
+c0c16232671d63ce9fda47c58d0bcc156e64bf8c98e53c50c247eb8afd20e0f8
+
+
+sudo kubeadm token create --certificate-key fee9c0be99796ec54cf2f4e86588aa0b0f4123bddc9e35f31b57a8a137c74f94 --print-join-command
+
+------------->> for master node 
+kubeadm join 192.168.18.111:6443 --token kgcyzs.tr5r647wuaw6nk28 --discovery-token-ca-cert-hash sha256:c856cc7b0f63ad83ff0da1fd6c5f7e5ef17ac0247bc973ff1e035a33a6099faf --control-plane --certificate-key c0c16232671d63ce9fda47c58d0bcc156e64bf8c98e53c50c247eb8afd20e0f8
+
+------------->> for worker node
+kubeadm join 192.168.18.111:6443 --token kgcyzs.tr5r647wuaw6nk28 --discovery-token-ca-cert-hash sha256:c856cc7b0f63ad83ff0da1fd6c5f7e5ef17ac0247bc973ff1e035a33a6099faf 
+
+
+
+
+
+

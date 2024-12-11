@@ -1,0 +1,233 @@
+{
+  "main": {
+    "id": "c76576d55e37c419",
+    "type": "split",
+    "children": [
+      {
+        "id": "6e490cf3ef195ab4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7215eba14a0a2a93",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "KUBERNETES/ALERT MANAGER/ALert config.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ALert config"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a1e3e58e16419578",
+    "type": "split",
+    "children": [
+      {
+        "id": "c3e0c3d79423cb9e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "70d26a63b221a5dc",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabeticalReverse"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "1dc16a744f33e51d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "cf3cca0784492d42",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "8811289f115143e5",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 391.5
+  },
+  "right": {
+    "id": "240f0bc7400be816",
+    "type": "split",
+    "children": [
+      {
+        "id": "069043fecfc404c6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d2b2ab31d975e8f4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "KUBERNETES/ALERT MANAGER/ALert config.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for ALert config"
+            }
+          },
+          {
+            "id": "c3e069ec2788ae2f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "KUBERNETES/ALERT MANAGER/ALert config.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from ALert config"
+            }
+          },
+          {
+            "id": "47af72ba3f3ab84c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "2dcebe9e70c2d423",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "KUBERNETES/ALERT MANAGER/ALert config.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of ALert config"
+            }
+          },
+          {
+            "id": "d00e239c2960e556",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 222.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "7215eba14a0a2a93",
+  "lastOpenFiles": [
+    "KUBERNETES/ALERT MANAGER/Dev Alert.md",
+    "ARGOCD/Enable Disable.md",
+    "ARGOCD/install using helm.md",
+    "ARGOCD/Steps.md",
+    "Maven/Multiple Maven Installation in Ubuntu.md",
+    "CI/JDK-17.md",
+    "CI/jdk-11.md",
+    "KUBERNETES/Grafana/Deploying Grafana, Loki and Prometheus in Kubernetes Cluster.md",
+    "HAPROXY/HAPROXY.md",
+    "VS CODE/vs code opening issue.md",
+    "KUBERNETES/deployment/deployment.md",
+    "VELERO/Velero Installation Backup Restore.md",
+    "KUBERNETES/Grafana/grafana pvc.md",
+    "KUBERNETES/HA Cluster/HaProxy Installation and Configuration.md",
+    "Finpos/new token generator.md",
+    "postgres/Command.md",
+    "KUBERNETES/Kube-Metrics.md",
+    "Finpos/Generate Cluster Config and token for Finpos.md",
+    "ARGOCD/creating user.md",
+    "VS CODE",
+    "LINUX COMMANDS/steps for partitioning a physical disk.md",
+    "KUBERNETES/NFS server  installation and nfs-provisioning.md",
+    "KUBERNETES/NFS Server Configuration and Installation.md",
+    "KUBERNETES/Kubernetes 1.29.4 Installation.md",
+    "KUBERNETES/KUBEADM CERTIFICATE RENEW.md",
+    "KUBERNETES/KUBELET/Command.md",
+    "KUBERNETES/HA Cluster/KeepAlived and Haproxy.md",
+    "KUBERNETES/VALUES/kafka-ui-values.yaml",
+    "KUBERNETES/VALUES/kafka-values.yaml",
+    "MSSQL",
+    "KUBERNETES/VALUES/argocd.yaml",
+    "KUBERNETES/deployment",
+    "KUBERNETES/VALUES/prometheus-values.yaml",
+    "KUBERNETES/VALUES/grafana-loki-values.yaml",
+    "KUBERNETES/VALUES",
+    "KUBERNETES/ALERT MANAGER",
+    "Screenshot from 2024-06-21 10-06-15.png",
+    "Screenshot from 2024-06-21 10-06-48.png",
+    "Screenshot from 2024-06-21 10-07-58.png",
+    "Screenshot from 2024-06-21 09-49-39 1.png",
+    "Pasted image 20240621100942.png",
+    "Pasted image 20240621100937.png",
+    "Pasted image 20240621100929.png",
+    "Screenshot from 2024-06-21 10-01-12.png",
+    "Screenshot from 2024-06-21 09-52-33.png",
+    "Screenshot from 2024-06-21 09-52-03.png"
+  ]
+}

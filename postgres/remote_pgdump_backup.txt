@@ -1,0 +1,11 @@
+
+#inorder to take database backup 
+
+
+PGPASSWORD="mypass" pg_dump -i -h localhost -p 5432 -U username -F c -b -v -f dumpfilename.dump databasename
+
+
+PGPASSWORD="yourpassword" pg_dump -U postgres -h localhost mydb > mydb.pgsql
+
+
+pg_dump "host=localhost port=5432 dbname=mydb user=myuser password=mypass" > mydb_export.sql

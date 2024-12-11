@@ -1,0 +1,14 @@
+Some command used to take back up from the postgres 
+
+===>pg_dump getpay_dev > getpay.sql
+
+in azure cloud shell
+===> kubectl cp getpay-dev/getpay-postgres-0:/tmp/getpay.sql /tmp/getpay.sql
+====> kubectl cp /tmp/getpay.sql getpay-qa/getpay-postgres-qa-0:/tmp
+in qa pod 
+====>create db getpay;
+====>psql getpay < /tmp/getpay.sql
+
+
+
+advice_on BETWEEN '2024-05-03 08:36:04	' AND '2024-05-04 08:36:04	'

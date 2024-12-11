@@ -1,0 +1,40 @@
+openssl genpkey -algorithm RSA -out sushantthapa.key
+openssl req -new -key sushantthapa.key -out sushantthapa.csr
+openssl x509 -req -days 365 -in sushantthapa.csr -signkey sushantthapa.key -out sushantthapa.crt
+
+openssl x509 -in sushantthapa.crt -out sushantthapa.cert -outform PEM
+
+
+//download harbor from github
+copy the above generated .cert and .key to the harbor directory
+
+cp harbor.yaml.tmpl harbor.yaml
+
+add hostname which you have used for creating cert here i have used sushantthapa.com
+
+hostname = sushantthapa.com
+
+cert = /home/sushant/Downloads/harbor-offline-installer-v2.9.0/sushantthapa.cert
+key=/home/sushant/Downloads/harbor-offline-installer-v2.9.0/sushantthapa.key
+
+
+sudo ./install.sh
+
+make sure you have install docker and docker compose 
+
+docker version  ->23.0.2
+docker compose version ->2.17.2
+
+
+
+login to UI from browser using hostname -> sushantthapa.com
+also add and map the ip to localhost
+
+docker login https://sushantthapa.com
+default user admin
+default pass Harbor12345
+
+//here i have push my loca images from docker mytest
+
+ docker tag mytest sushantthapa.com/demo/mytest:1
+ 1004  docker push sushantthapa.com/demo/mytest:1

@@ -1,0 +1,13 @@
+Configuring java in centos 
+
+//move to root directory
+>>>>>>>>>>>cd ~
+>>>>>>>>>>>vi .bash_profile
+
+
+
+#JAVA_HOME_
+PATH=$PATH:/usr/local/java/bin
+export PATH
+JAVA_HOME=/usr/local/java
+export JAVA_HOME

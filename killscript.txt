@@ -1,0 +1,5 @@
+
+#!/bin/bash
+
+processId=$(ps -ef | grep 'ABCD' | grep -v 'grep' | awk '{ printf $2 }')
+echo $processId
